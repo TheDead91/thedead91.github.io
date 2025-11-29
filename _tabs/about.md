@@ -34,4 +34,4 @@ RecordOpponentTwattageOccurrence();
 SaySorryYouLittleBastard();
 ```
 ### Carmageddon 1 debugging symbols dumped
-<a href="http://1amstudios.com/2014/12/02/carma1-symbols-dumped/" rel="external nofollow">http://1amstudios.com/2014/12/02/carma1-symbols-dumped/</a>
+[http://1amstudios.com/2014/12/02/carma1-symbols-dumped/](http://1amstudios.com/2014/12/02/carma1-symbols-dumped/)
