@@ -12,9 +12,10 @@ tags:
   - Holiday Hack Orientation
   - Jingle Ringford
 categories:
+  - SANS Holiday Hack Challenge 2024  
   - SANS Holiday Hack Challenge 2024 - Prologue
 description: Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands
-date: 2024-1-11 01:00:00
+date: 2024-11-11 01:00:00
 ---
 
 Difficulty: <span style="color:red">❄</span> ❄ ❄ ❄ ❄  

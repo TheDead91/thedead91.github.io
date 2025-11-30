@@ -13,6 +13,7 @@ tags:
   - Decrypt
   - Dusty Giftwrap
 categories:
+  - SANS Holiday Hack Challenge 2024
   - SANS Holiday Hack Challenge 2024 - Act 3
 date: 2025-01-03 14:00:00
 description: Decrypt the Frostbit-encrypted Naughty-Nice list and submit the first and last name of the child at number 440 in the Naughty-Nice list.

@@ -13,6 +13,7 @@ tags:
   - Deactivate
   - Dusty Giftwrap
 categories:
+  - SANS Holiday Hack Challenge 2024
   - SANS Holiday Hack Challenge 2024 - Act 3
 date: 2025-01-03 15:00:00
 description: Wombley's ransomware server is threatening to publish the Naughty-Nice list. Find a way to deactivate the publication of the Naughty-Nice list by the ransomware server.

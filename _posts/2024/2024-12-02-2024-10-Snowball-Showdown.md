@@ -12,6 +12,7 @@ tags:
   - Snowball Showdown
   - Dusty Giftwrap
 categories:
+  - SANS Holiday Hack Challenge 2024  
   - SANS Holiday Hack Challenge 2024 - Act 2
 date: 2024-12-02 10:00:00
 description: Wombley has recruited many elves to his side for the great snowball fight we are about to wage. Please help us defeat him by hitting him with more snowballs than he does to us.
