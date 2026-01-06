@@ -31,14 +31,14 @@ The location of the treasure in Rusty Quay is marked by a shiny spot on the grou
 
 ### Solution
 By zooming out in the screen, the path to the cartridge is revealed, and highlighted in green in the image below:
-![maze](/assets/img/posts/2023/2023-11-Game-Cartridges-Vol-3/maze.png)  
+![maze](/assets/static/posts/2023/2023-11-Game-Cartridges-Vol-3/maze.png)  
 When saving coins are lost and can be restored with T-Wiz’s help. Using the bgb cheat searcher I eventually identified the registries that were changing/not changing accordingly to what was happening in the game:
-![bgb_cheat_searcher](/assets/img/posts/2023/2023-11-Game-Cartridges-Vol-3/bgb_cheat_searcher.png)  
+![bgb_cheat_searcher](/assets/static/posts/2023/2023-11-Game-Cartridges-Vol-3/bgb_cheat_searcher.png)  
 With some further analysis I was able to identify those holding the actual coin value: `CBA2` being the units, `CB9C` being the tens and `CB9E` being the hundreds. Then playing till the end of the game and setting coins to `999` (at least in memory) new sprites appear:
 
 |                      |                                |
 | -------------------- | ------------------------------ |
-| ![ram](/assets/img/posts/2023/2023-11-Game-Cartridges-Vol-3/ram.png) | ![the_jump](/assets/img/posts/2023/2023-11-Game-Cartridges-Vol-3/the_jump.png) |
+| ![ram](/assets/static/posts/2023/2023-11-Game-Cartridges-Vol-3/ram.png) | ![the_jump](/assets/static/posts/2023/2023-11-Game-Cartridges-Vol-3/the_jump.png) |
 
 Once crossed the gap we meet a Grumpy Man that tells us the password `morethanmeetstheeye` for ChatNPT which sets the variable `ROCKCANMOVE` to `TRUE`, allowing us to move the rock and obtain the final flag `!tom+elf!`.
 

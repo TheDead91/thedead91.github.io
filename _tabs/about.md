@@ -9,8 +9,32 @@ order: 4
 # Andrea Lamonato
 Head of Security Architectures
 
+Github Pages: [https://thedead91.github.io/](https://thedead91.github.io/)  
 Github: [https://github.com/TheDead91](https://github.com/TheDead91)  
-Linkedin: [https://www.linkedin.com/in/andrea-lamonato/](https://www.linkedin.com/in/andrea-lamonato/)
+Linkedin: [https://www.linkedin.com/in/andrea-lamonato/](https://www.linkedin.com/in/andrea-lamonato/)  
+Youtube: [https://www.youtube.com/@TheDead91](https://www.youtube.com/@TheDead91)
+
+## (2025) thedead@maccos ~ % whoami
+```c#
+         @@@@@@@@@@@@#*%@@@@#=:...+@@@@@@@@@+...:=#@@@@%*#@@@@@@@@@@@@           
+         @@@@@@@%@@@-  .%@@=      :@@@@@@@@@:      =@@%.  -@@@%@@@@@@@
+         @@@@@#:.=@#    %@+      .#@@@@@@@@@#.      +@%    #@=.:#@@@@@
+         @@@@@=   %@:  =@@:     -%@@@@@@@@@@@%-     :@@=  :@%   =@@@@@
+         @+:-%%. .%@%+*@@@+  .-*@@@@@@@@@@@@@@@*-.  +@@@*+%@%. .%%-:+@
+         @:  -@%*%@@%%%######%@@@@@@@@@@@@@@@@@@@%######%%%@@%*%@-  :@
+         @%- -@@%*=:.      .:+%@@@@@@@@@@@@@@@@@%+:.      .:=*%@@- -%@
+         @@@%@#-              +@@@@@@@@@@@@@@@@@+              -#@%@@@
+         @@@@=                #@@@@@@@@@@@@@@@@@#                =@@@@
+         @@@+               -#@@@@@@@@@@@@@@@@@@@#-               +@@@
+         @@@:            .=#@@@@@@@@@@@@@@@@@@@@@@@#=.            :@@@
+         @@@=         .-*%@@@@@@@@@@@@@@@@@@@@@@@@@@@%*-.         =@@@
+         @@@%.       +%@@%*===*%@@@@@@@@@@@@@@@%*===*%@@%+       .%@@@
+         @@@@#.     -@@@@:    .%@@@@@@@@@@@@@@@%.    :@@@@-     .#@@@@
+         @@@@@%-     :*#+     *@@@@@@@@@@@@@@@@@*     +#*:     -%@@@@@
+         @@@@@@@*-          :#@@@@@@@@@@@@@@@@@@@#:          -*@@@@@@@
+         @@@@@@@@@%+-.. .:=#@@@@@@@@@@@@@@@@@@@@@@@#=:. ..-+%@@@@@@@@@
+                               ...wrong gnome?
+```
 
 ## (2024) thedead@maccos ~ % whoami
 ### Carmageddon words, not mine

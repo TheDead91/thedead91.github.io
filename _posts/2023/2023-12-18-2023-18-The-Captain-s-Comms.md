@@ -64,7 +64,7 @@ uQIDAQAB
 -----END PUBLIC KEY-----
 ```
 Setting the value of the cookie `justWatchThisRole` to the content of `rMonitor.tok` I was able to access the `Just Watch This Signal Display` that returned a [gif](https://captainscomms.com/static/images/WaterfallPopOut.gif) with clickable peaks highlighted in the image below:
-![07_01_WaterfallPopOut_with_peaks](/assets/img/posts/2023/2023-18-The-Captain-s-Comms/07_01_WaterfallPopOut_with_peaks.png)
+![07_01_WaterfallPopOut_with_peaks](/assets/static/posts/2023/2023-18-The-Captain-s-Comms/07_01_WaterfallPopOut_with_peaks.png)
 
 Unfortunately, when clicking the peaks, I was being presented with an error requiring me to have the radioDecoder role.
 
@@ -79,9 +79,9 @@ This then allowed to access the content of the peaks in the previous image, reve
 
 |                                    |                                                      |
 | ---------------------------------- | ---------------------------------------------------- |
-| Just Watch This CW Decoder         | ![08_00_02_dcdCW_cut](/assets/img/posts/2023/2023-18-The-Captain-s-Comms/08_00_01_dcdCW_full.png)   |
-| Just Watch This Audio-Text Decoder | ![08_01_02_dcdNUM_cut](/assets/img/posts/2023/2023-18-The-Captain-s-Comms/08_01_01_dcdNUM_full.png) |
-| Just Watch This RadioFax Decoder   | ![08_02_02_dcdFX_cut](/assets/img/posts/2023/2023-18-The-Captain-s-Comms/08_02_01_dcdFX_full.png)   |
+| Just Watch This CW Decoder         | ![08_00_02_dcdCW_cut](/assets/static/posts/2023/2023-18-The-Captain-s-Comms/08_00_01_dcdCW_full.png)   |
+| Just Watch This Audio-Text Decoder | ![08_01_02_dcdNUM_cut](/assets/static/posts/2023/2023-18-The-Captain-s-Comms/08_01_01_dcdNUM_full.png) |
+| Just Watch This RadioFax Decoder   | ![08_02_02_dcdFX_cut](/assets/static/posts/2023/2023-18-The-Captain-s-Comms/08_02_01_dcdFX_full.png)   |
 
 #### TH3CAPSPR1V4T3F0LD3R - And signing petitions
 The transmission machine required additional privileges, so I went after the captain’s private key. After ignoring the UPPER CASE for too long, I found it at the URL (https://captainscomms.com/jwtDefault/keys/TH3CAPSPR1V4T3F0LD3R/capsPrivKey.key) :
@@ -127,7 +127,7 @@ PAYLOAD --> {"iss": "HHC 2023 Captain's Comms", "iat": 1699485795.3403327, "exp"
 
 #### The captainsTX - and discovering attention and reading weaknesses
 With the new role, I was able to access the TX machine. The frequency `10426 Hz` was fairly obvious from the `RadioFax Decoder message`, and I understood that `1224` and `1600` in the `Audio-Text Decoder message` were the `Go-Date` and `Go-Time`. Poking around with these values was not successful until I was got the hint on re-reading the [Background](https://captainscomms.com/static/images/instructions.png), and understood that: a) reading is not my thing and b) I had to shift back 4 hours the `Go-Time`. That saved the day:
-![09_congrats](/assets/img/posts/2023/2023-18-The-Captain-s-Comms/09_congrats.png)
+![09_congrats](/assets/static/posts/2023/2023-18-The-Captain-s-Comms/09_congrats.png)
 
 ### Thanks to @i81b4u
 Thank you for making me try the CAPS!

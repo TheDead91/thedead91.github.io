@@ -49,7 +49,7 @@ SHA256:lcvFbYD3/mgiNJohS1tokhTa0duNE35uHGReft2vRsk thedead@dellian
 ```
 
 Then upload the public key to the abovementioned Azure Function App to obtain a certificate file:
-![upload_ssh_key](/assets/img/posts/2023/2023-17-Certificate-SSHenanigans/upload_ssh_key.png)
+![upload_ssh_key](/assets/static/posts/2023/2023-17-Certificate-SSHenanigans/upload_ssh_key.png)
 
 Save the certificate to a dedicated file (`hhc2023.cert` in my case), fix permissions if needed and log in to the ssh server using these credentials:
 ```bash

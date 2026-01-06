@@ -44,7 +44,7 @@ Even though I cheated, at the end you are presented with an “old-timey radio�
 
 | AUDIO                    | MORSE                     | DECODED |
 | ------------------------ | ------------------------- | ------- |
-| ![audio](/assets/img/posts/2023/2023-10-Game-Cartridges-Vol-2/audio.png) | `−−· ·−·· −−−−− ·−· −·−−` | `GL0RY` |
+| ![audio](/assets/static/posts/2023/2023-10-Game-Cartridges-Vol-2/audio.png) | `−−· ·−·· −−−−− ·−· −·−−` | `GL0RY` |
 
 And the flag is `GL0RY`, with a `0` not an `O`...that also took its time, and manual decoding 🙂
 

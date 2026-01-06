@@ -41,20 +41,20 @@ Trying to alter parameters in different parts of [`phaser-snowball-game.js`](htt
 }
 ```
 That `blastRadius` triggered my curiosity so I went ahed and ovverode it in `phaser-snowball-game.js` adding some `0`s value using developer tools:
-![10_01_SnowballShowdown_blastRadius.png](/assets/img/posts/2024/2024-10-Snowball-Showdown/10_01_SnowballShowdown_blastRadius.png)
+![10_01_SnowballShowdown_blastRadius.png](/assets/static/posts/2024/2024-10-Snowball-Showdown/10_01_SnowballShowdown_blastRadius.png)
 This trick basically destroyed the scenery, allowing to easily shoot Wombley while remaining in a safe zone and even behind the enemy lines:
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/LHvK-QOd5bY?si=sbGErMqVBsTQwVvo" title="Snowball Showdown - Silver trophy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Gold trophy
 While trying to figure out how to achieve the gold trophy, someone dropped a MOASB on my game...and then I knew what I was after 😊
-![10_02_SnowballShowdown_MOASB-min-dwarf.png](/assets/img/posts/2024/2024-10-Snowball-Showdown/10_02_SnowballShowdown_MOASB-min-dwarf.png)
+![10_02_SnowballShowdown_MOASB-min-dwarf.png](/assets/static/posts/2024/2024-10-Snowball-Showdown/10_02_SnowballShowdown_MOASB-min-dwarf.png)
 
 Looking for references to "moasb" I could find a function to send the message using ws:
 ```js
 this.moasb = () => { this.ws.sendMessage({ type: 'moasb' }) }
 ```
 At that point I thought "why should I shoot snowball if I can shoot MOASB?" and I modified the `phaser-snowball-game.js` again:
-![10_03_SnowballShowdown_throwMoasb.png](/assets/img/posts/2024/2024-10-Snowball-Showdown/10_03_SnowballShowdown_throwMoasb.png)
+![10_03_SnowballShowdown_throwMoasb.png](/assets/static/posts/2024/2024-10-Snowball-Showdown/10_03_SnowballShowdown_throwMoasb.png)
 
 Dropping a MOASB was a very interesting thing to do:
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/AsrxBEgVZl8?si=5Eq9pweJiA9cWVrF" title="Snowball Showdown - Gold trophy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

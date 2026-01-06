@@ -18,7 +18,7 @@ Difficulty: 🎄
 Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands
 
 # (Kind of) Solution
-* The Elf: ![jingle](/assets/img/posts/2023/2023-01-Holiday-Hack-Orientation/JingleRingford.png)  
-* The Badge: ![badge](/assets/img/posts/2023/2023-01-Holiday-Hack-Orientation/badge_base.png)  
-* The Fishing Pole: ![fishingpole](/assets/img/posts/2023/2023-01-Holiday-Hack-Orientation/fishingpole.png)
-* The Terminal: ![cranpi](/assets/img/posts/2023/2023-01-Holiday-Hack-Orientation/cranpi.png)  
+* The Elf: ![jingle](/assets/static/posts/2023/2023-01-Holiday-Hack-Orientation/JingleRingford.png)  
+* The Badge: ![badge](/assets/static/posts/2023/2023-01-Holiday-Hack-Orientation/badge_base.png)  
+* The Fishing Pole: ![fishingpole](/assets/static/posts/2023/2023-01-Holiday-Hack-Orientation/fishingpole.png)
+* The Terminal: ![cranpi](/assets/static/posts/2023/2023-01-Holiday-Hack-Orientation/cranpi.png)  

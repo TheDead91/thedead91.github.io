@@ -35,6 +35,6 @@ navigating to that position:
 ```html
 <div class="ent type-item item-gameboy1 p-31-25" data-location="31,25">
 ```
-Once found, under Luffy’s hat (![misfit_piratehat_small](/assets/img/posts/2023/2023-09-Game-Cartridges-Vol-1/misfit_piratehat_small.png)), this cartridge is actually easier to play than to hack, so, once the QR is fixed it is show in its entirety:
-![qr_code](/assets/img/posts/2023/2023-09-Game-Cartridges-Vol-1/qr_code.png)  
+Once found, under Luffy’s hat (![misfit_piratehat_small](/assets/static/posts/2023/2023-09-Game-Cartridges-Vol-1/misfit_piratehat_small.png)), this cartridge is actually easier to play than to hack, so, once the QR is fixed it is show in its entirety:
+![qr_code](/assets/static/posts/2023/2023-09-Game-Cartridges-Vol-1/qr_code.png)  
 The QR code points to http://8bitelf.com, accessing it allows obtaining the flag `santaconfusedgivingplanetsqrcode`.

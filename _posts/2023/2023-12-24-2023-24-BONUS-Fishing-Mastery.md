@@ -28,6 +28,6 @@ There are a variety of strategies for automating repetative website tasks. Tools
 
 ### Solution
 I let my script run for quite a while but I wasn’t able to obtain all the fish, so I looked at the images I downloaded from [https://2023.holidayhackchallenge.com/sea/fishdensityref.html](https://2023.holidayhackchallenge.com/sea/fishdensityref.html). I understood that white gradient in the image would indicate where a fish could be found. I started overlapping the density with the [minimap](https://2023.holidayhackchallenge.com/sea/assets/minimap.png) and thought about automating the whole process of moving & catching for each fish. When doing that I noticed the Piscis Cyberneticus Skodo having a really narrow catching area that can be seen in white in the image below:  
-![minimap_PiscisCyberneticusSkodo_overlay](/assets/img/posts/2023/2023-24-BONUS-Fishing-Mastery/minimap_PiscisCyberneticusSkodo_overlay.png)
+![minimap_PiscisCyberneticusSkodo_overlay](/assets/static/posts/2023/2023-24-BONUS-Fishing-Mastery/minimap_PiscisCyberneticusSkodo_overlay.png)
 
 While working on a new version, I let my old script run with the boat in the fishing area for the Piscis Cyberneticus Skodo. Eventually the night passed and I woke up having all 171 fish. The Piscis itself was catched #170 and the last one was actually a Whiskered Jumblefish 🙂

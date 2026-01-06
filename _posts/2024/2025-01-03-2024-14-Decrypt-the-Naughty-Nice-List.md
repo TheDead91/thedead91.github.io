@@ -106,21 +106,21 @@ Strict-Transport-Security: max-age=31536000
 
 ### The executable
 When started, the executable sets up the example values for digest and status (red box) and searches for the presence of the APP_DEBUG environment variable (green box):
-![14_01_example_data_and_debug_option.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_01_example_data_and_debug_option.png)
+![14_01_example_data_and_debug_option.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_01_example_data_and_debug_option.png)
 If the environment variable is set to `APP_DEBUG="true"` it will set the server to `http://localhost` (green box), otherwise it will use `https://api.frostbit.app` (red box):
-![14_02_debug_and_production_server.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_02_debug_and_production_server.png)
+![14_02_debug_and_production_server.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_02_debug_and_production_server.png)
 After that, it will check the presence of the `DoNotAlterOrDeleteMe.frostbit.json` file:
-![14_03_do_not_alter_or_delete.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_03_do_not_alter_or_delete.png)
+![14_03_do_not_alter_or_delete.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_03_do_not_alter_or_delete.png)
 And it will try to load the file `public_key.pem`:
-![14_04_public_key_pem.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_04_public_key_pem.png)
+![14_04_public_key_pem.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_04_public_key_pem.png)
 The content of this file will be used to generate the key with the `generateKey` function:
-![14_05_generate_key_call.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_05_generate_key_call.png)
+![14_05_generate_key_call.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_05_generate_key_call.png)
 Once the key has been generated, the executable will check for the existance of the file `naughty_nice_list.csv`
-![14_06_check_naughty_nice_list_csv.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_06_check_naughty_nice_list_csv.png)
+![14_06_check_naughty_nice_list_csv.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_06_check_naughty_nice_list_csv.png)
 If this file is found it will then go ahead, create the `naughty_nice_list.csv.frostbit` seen in the artifacts and encrypt the original file using the `encryptFile` function:
-![14_07_encrypt_file_call.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_07_encrypt_file_call.png)
+![14_07_encrypt_file_call.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_07_encrypt_file_call.png)
 The encryptFile function encrypts the file using AES-CBC and the previously generated key along with the nonce as IV:
-![14_08_encryptFile.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_08_encryptFile.png)
+![14_08_encryptFile.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_08_encryptFile.png)
 Subsequent operations will encrypt the key, send the encryptedkey to the server, receive the final content for `DoNotAlterOrDeleteMe.frostbit.json`, save it and terminate.
 
 ### The ransom note
@@ -218,9 +218,9 @@ Exploiting the library can allow to obtain a digest of only zeroes by padding th
 -   A padding of 3 bytes (e.g. “ff”), so to line up with the hash length
 -   The nonce of 8 bytes, repeated to reach the hash length
 The result would be the following 32 bytes:
-![14_09_hashlib_01.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_09_hashlib_01.png)
+![14_09_hashlib_01.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_09_hashlib_01.png)
 These would cancel out any contribution by both the file content and the filename itself, leading to the digest 00000000000000000000000000000000 (00, 16 times):
-![14_10_hashlib_02.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_10_hashlib_02.png)
+![14_10_hashlib_02.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_10_hashlib_02.png)
 
 ### The LFI
 Tampering the `statusId` in the URL we can observe a different error, leading toward a LFI vulnerability:
@@ -244,7 +244,7 @@ I assumed this is due to the presence of printable characters in the nonce, for 
 b'\x9e`\xe7\xc0!c5\x9a'
 ```
 I have then spent some time to find accepted alternatives to these printable characters so to introduce the least possible variance in the resulting digest. The following table shows the resulting values with an incoming hash of only `ff`:
-![14_11_lfi.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_11_lfi.png)
+![14_11_lfi.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_11_lfi.png)
 The highlighted values are the ones that have changed, and these could either be only the shown value or 0, depending on the hash results from the first loop (file_bytes XOR nonce_bytes). Having 11 bytes that can assume 2 values, this would result in `2 ^ 11 = 2048` possible digest values. This is a fairly big number but manageable with a script 😁
 ```python
 import requests
@@ -393,12 +393,12 @@ jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
 ```
 ### The encryption key
 Having obtained the private key, we can now decrypt the encrypted key retrieved from the pcap:
-![2024-14-Decrypt-the-Naughty-Nice-List/14_12_decrypt_encryptionKey.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_12_decrypt_encryptionKey.png)
+![2024-14-Decrypt-the-Naughty-Nice-List/14_12_decrypt_encryptionKey.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_12_decrypt_encryptionKey.png)
 The result is `1d1c6165774bd4ef06f2910884b79484,9e60e7c02163359a`, wich is in the format `<key>,<nonce>`.
 
 ### The solution (Finally 😁)
 Knowing that the executable encrypts the file with AES-CBC and having obtained the encryption key, we can finally decrypt the naughty nice list:
-![14_13_decrypt_the_file.png](/assets/img/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_13_decrypt_the_file.png)
+![14_13_decrypt_the_file.png](/assets/static/posts/2024/2024-14-Decrypt-the-Naughty-Nice-List/14_13_decrypt_the_file.png)
 The solution of the challenge is the name of this last child: “Xena Xtreme”!
 
 ## Thanks
