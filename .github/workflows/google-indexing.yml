@@ -6,7 +6,9 @@ on:
 jobs:
   index:
     # Only run if the deployment was successful
-    if: github.event.deployment_status.state == 'success'
+    if: |
+      github.event.deployment_status.state == 'success' && 
+      github.event.deployment_status.environment == 'github-pages'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -16,9 +18,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: indexed_urls.txt
-          key: url-history-${{ github.run_number }}
+          key: url-history-v2-${{ github.run_number }}
           restore-keys: |
-            url-history-
+            url-history-v2-
 
       - name: Set up Python
         uses: actions/setup-python@v4
