@@ -33,7 +33,7 @@ jobs:
           pwd
           
           # Run the script from its new location
-          python .github/workflows/index.py
+          python .github/workflows/scripts/index.py
           
           # Clean up
           rm .github/workflows/service_account.json
