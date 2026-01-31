@@ -1,19 +1,21 @@
 name: Google Indexing API
 
 on:
-  deployment_status:
+  workflow_run:
+    # This targets the internal GitHub Pages deployment process
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
 
-# This is your insurance policy: it kills any redundant runs immediately
+# Prevents multiple runs from overlapping and potentially corrupting the history file
 concurrency:
   group: indexing-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   index:
-    # This strict logic ensures 10 statuses result in only 1 actual execution
-    if: |
-      github.event.deployment_status.state == 'success' && 
-      github.event.deployment_status.environment == 'github-pages'
+    # Only execute if the deployment actually succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -23,7 +25,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: indexed_urls.txt
-          key: url-history-v2-${{ github.run_id }} # Use run_id to ensure a unique save
+          # run_id ensures a unique cache key for every successful run
+          key: url-history-v2-${{ github.run_id }}
           restore-keys: |
             url-history-v2-
 
@@ -42,8 +45,8 @@ jobs:
           # Create the key inside the workflows folder so the script finds it
           echo "$GOOGLE_JSON" > .github/workflows/service_account.json
           
-          # Run the script from its new location
+          # Run the script from its location
           python .github/workflows/scripts/index.py
           
-          # Clean up
+          # Clean up the sensitive JSON file immediately
           rm .github/workflows/service_account.json
