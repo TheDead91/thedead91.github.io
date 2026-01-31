@@ -26,6 +26,11 @@ jobs:
         run: |
           # Create the key inside the workflows folder so the script finds it
           echo "$GOOGLE_JSON" > .github/workflows/service_account.json
+
+          echo "LS"
+          ls -la
+          echo "PWD"
+          pwd
           
           # Run the script from its new location
           python .github/workflows/index.py
