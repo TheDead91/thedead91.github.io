@@ -1,11 +1,16 @@
 name: Google Indexing API
 
 on:
-  deployment_status: # Triggers when a deployment status changes
+  deployment_status:
+
+# This is your insurance policy: it kills any redundant runs immediately
+concurrency:
+  group: indexing-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   index:
-    # Only run if the deployment was successful
+    # This strict logic ensures 10 statuses result in only 1 actual execution
     if: |
       github.event.deployment_status.state == 'success' && 
       github.event.deployment_status.environment == 'github-pages'
@@ -18,7 +23,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: indexed_urls.txt
-          key: url-history-v2-${{ github.run_number }}
+          key: url-history-v2-${{ github.run_id }} # Use run_id to ensure a unique save
           restore-keys: |
             url-history-v2-
 
