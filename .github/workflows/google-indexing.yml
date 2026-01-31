@@ -17,10 +17,10 @@ jobs:
         with:
           path: indexed_urls.txt
           # We use the Run Number to ensure every single run creates a fresh save point
-          key: url-history-${{ github.run_number }}
+          key: url-history-v2-${{ github.run_number }}
           # This allows it to pull the "most recent" version of the file
           restore-keys: |
-            url-history-
+            url-history-v2-
 
       - name: Set up Python
         uses: actions/setup-python@v4

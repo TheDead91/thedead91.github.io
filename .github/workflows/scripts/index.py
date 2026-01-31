@@ -48,20 +48,20 @@ else:
     for url in new_urls:
         data = json.dumps({"url": url, "type": "URL_UPDATED"})
         resp = authed_session.post(endpoint, data=data)
-        
+
         if resp.status_code == 200:
             print(f"✅ Success: {url}")
-            seen_urls.add(url) # Only add to history if successful
+            seen_urls.add(url) # ONLY add to history if it actually worked
         elif resp.status_code == 429:
             print(f"🛑 Rate limit hit (429). Stopping for today.")
-            break
+            break        
         else:
             print(f"❌ Failed ({resp.status_code}): {url}")
         
         # Respect the bot: sleep for 1.5 seconds between requests
         time.sleep(1.5)
 
-    # 5. Save updated history (even if we stopped early)
+    # Save ONLY the successful ones + the ones we knew from before
     with open(HISTORY_FILE, "w") as f:
         for url in sorted(list(seen_urls)):
             f.write(f"{url}\n")
