@@ -16,8 +16,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: indexed_urls.txt
-          # The key changes every run so we can save a NEW version of the history
-          key: url-history-${{ github.run_id }}
+          # We use the Run Number to ensure every single run creates a fresh save point
+          key: url-history-${{ github.run_number }}
+          # This allows it to pull the "most recent" version of the file
           restore-keys: |
             url-history-
 
