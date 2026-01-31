@@ -1,0 +1,25 @@
+name: Google Indexing API
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default branch
+  workflow_dispatch: # allows you to run it manually
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Google Indexing
+        uses: setsusoft/google-indexing-api-action@v1.1.0
+        with:
+          # This points to the secret you created
+          serviceAccountKey: ${{ secrets.INDEXING_API_KEY }}
+          # The URL of your site or specific updated page
+          # You can also point this to your sitemap.xml
+          siteUrl: "https://thedead91.github.io/"
+          # Type of notification (URL_UPDATED or URL_DELETED)
+          type: "URL_UPDATED"
