@@ -16,9 +16,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: indexed_urls.txt
-          key: url-history-v2-${{ github.run_number }}
+          key: url-history-${{ github.run_number }}
           restore-keys: |
-            url-history-v2-
+            url-history-
 
       - name: Set up Python
         uses: actions/setup-python@v4
