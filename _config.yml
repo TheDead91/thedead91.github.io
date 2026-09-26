@@ -34,7 +34,7 @@ github:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  #name: your_full_name
+  name: Andrea Lamonato
   #email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -102,7 +102,9 @@ avatar: /assets/img/profile_photo.jpg #https://avatars.githubusercontent.com/u/1
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+# Without this the site emitted no og:image / twitter:image at all, so every
+# shared link rendered as a bare text card.
+social_preview_image: /assets/img/profile_photo.jpg # string, local or CORS resources
 
 # boolean type, the global switch for TOC in posts.
 toc: true
@@ -215,6 +217,17 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
+  # Indexing-API bookkeeping from the removed workflow; kept out of the build
+  # and out of the repository in case a stale copy exists locally.
+  - "indexed_urls.txt"
+  - ".github/workflows/scripts"
+  # Local, machine-specific Google/Search Console credentials. These must never
+  # be committed (see also .gitignore).
+  - "service_account.json"
+  - "client_secret*.json"
+  - "oauth-client.json"
+  - "token.json"
+  - "credentials.json"
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -226,4 +239,8 @@ jekyll-archives:
     category: /categories/:name/
 
 plugins:
-  - jekyll-sitemap
+  # jekyll-sitemap is deliberately NOT used. It emitted every generated URL it
+  # could find, including per-post tag archive pages and paginated listings.
+  # sitemap.xml in this repository is the single, deliberate source of truth and
+  # is validated by tools/seo_check.py.
+  - jekyll-include-cache

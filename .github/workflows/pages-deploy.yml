@@ -57,6 +57,15 @@ jobs:
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
+      # Crawl/index architecture regression gate. Guards the invariants that the
+      # indexing audit established: the sitemap only advertises indexable
+      # canonical URLs, posts are never accidentally noindex, thin tag archives
+      # are excluded, titles/descriptions are unique per generated page, and no
+      # unrendered code fence leaks document-level markup into <body>.
+      # See docs/audit/ROOT_CAUSE.md. Standard library only, no extra setup.
+      - name: Check crawl/index architecture
+        run: python3 tools/seo_check.py _site --base-url https://thedead91.github.io
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:

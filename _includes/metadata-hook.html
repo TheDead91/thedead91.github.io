@@ -1,0 +1,24 @@
+{%- comment -%}
+Overrides the theme's empty `metadata-hook.html` placeholder.
+
+Two things are added here, both of which jekyll-seo-tag 2.9 cannot produce:
+
+1. Feed discovery. The theme publishes the Atom feed at /feed.xml and links it
+   only from a sidebar icon. There was no <link rel="alternate"> in any page
+   head, so feed autodiscovery had to rely on a single navigational link.
+   The `site.feed.path` key is read so the template keeps working if the feed
+   path is ever changed.
+
+2. Index directives. jekyll-seo-tag has no support for a robots meta tag at
+   all (verified against the installed 2.9.0 template), so `seo_noindex` in a
+   page's front matter is rendered here. `noindex, follow` is used rather than
+   `noindex, nofollow`: these pages are navigation surfaces, and following their
+   links is exactly how the underlying posts get discovered.
+{%- endcomment -%}
+{%- assign feed_path = site.feed.path | default: '/feed.xml' -%}
+{%- if site.feed.enabled != false %}
+<link rel="alternate" type="application/atom+xml" title="{{ site.title | xml_escape }}" href="{{ feed_path | absolute_url }}" />
+{%- endif %}
+{%- if page.seo_noindex %}
+<meta name="robots" content="noindex, follow" />
+{%- endif %}

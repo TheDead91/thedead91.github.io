@@ -1,7 +1,14 @@
 # Bundler cache
 .bundle
 vendor
-Gemfile.lock
+
+# NOTE: Gemfile.lock used to be listed here and is now deliberately committed.
+# For a site whose published HTML is produced by a gem-based toolchain that is a
+# reproducibility bug: every build resolved the newest allowed version, so a
+# theme or plugin release could silently change the deployed markup. The live
+# site was built with chirpy 7.4.1 while a fresh `bundle install` resolved
+# 7.6.0, which renders <html lang="en"data-bs-theme="dark"> (missing attribute
+# separator) under this site's compress_html settings.
 
 # Jekyll cache
 .jekyll-cache
@@ -10,6 +17,26 @@ _site
 
 # RubyGems
 *.gem
+
+# Indexing-API bookkeeping left over from the removed workflow
+indexed_urls.txt
+.github/workflows/scripts
+
+# Credentials - never commit these.
+# The Google Indexing API workflow used to write a service-account key into the
+# working tree at .github/workflows/service_account.json. All local Google /
+# Search Console credential artefacts are ignored here as a backstop, and are
+# additionally listed under `exclude:` in _config.yml so they can never be
+# published.
+service_account.json
+client_secret*.json
+oauth-client.json
+token.json
+credentials.json
+application_default_credentials.json
+*.pem
+.env
+.env.*
 
 # NPM dependencies
 node_modules

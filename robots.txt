@@ -1,0 +1,23 @@
+---
+# Overrides the theme-provided robots.txt.
+#
+# The theme ships a starter-demo robots.txt that only contains
+# `Disallow: /norobots/` for a directory that has never existed on this site,
+# which is misleading and communicates no real crawl policy.
+#
+# This site has no content that must be kept out of the index, so the policy is
+# fully permissive. Index-level decisions (for example, the thin tag archive
+# pages) are made with `noindex, follow` on the page itself rather than with
+# robots.txt, because a robots.txt disallow would also remove those pages from
+# the crawl graph and would stop search engines from following the links they
+# contain to the posts.
+permalink: /robots.txt
+---
+User-agent: *
+
+Allow: /
+
+# Canonical, absolute sitemap. Contains only URLs that are intended to be
+# indexable; navigational duplicates (paginated listings, per-post tag archive
+# pages) are intentionally excluded.
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

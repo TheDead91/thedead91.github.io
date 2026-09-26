@@ -1,0 +1,40 @@
+---
+# Deliberate sitemap - a formatter, not a decision.
+#
+# The indexable URL set is computed in _plugins/seo-indexing.rb, which publishes
+# it as `site.data["seo_sitemap"]`. This template only renders it, which is what
+# guarantees the sitemap can never disagree with the on-page index directives.
+#
+# This file replaces the auto-generated `jekyll-sitemap` output. That output
+# listed 203 URLs: 106 per-post tag archive pages (105 of them rendering under
+# 1200 characters of text, median 59, each reusing the exact <title> of the one
+# post it listed), 7 paginated listings sharing the homepage's title and
+# description, a Google site-verification file, and 136 pages in total carrying
+# the identical meta description "Yet another blog". Search Console reported the
+# homepage as "Crawled - currently not indexed" and all 73 posts as "URL is
+# unknown to Google", so the fix is a precise indexable set rather than a big
+# one. See docs/audit/ROOT_CAUSE.md.
+#
+# `jekyll-sitemap` was removed from the `plugins` list in _config.yml so that
+# this file is authoritative. If it is deleted, tools/seo_check.py fails rather
+# than silently reverting to an all-inclusive sitemap.
+#
+# Only <loc> and <lastmod> are emitted; <changefreq> and <priority> are ignored
+# by Google and were noise.
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+{%- for entry in site.data.seo_sitemap %}
+<url>
+  <loc>{{ entry.url | absolute_url | xml_escape }}</loc>
+{%- if entry.lastmod and entry.lastmod != empty %}
+  <lastmod>{{ entry.lastmod | date_to_xmlschema }}</lastmod>
+{%- endif %}
+</url>
+{%- endfor %}
+</urlset>

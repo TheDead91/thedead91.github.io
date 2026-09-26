@@ -1,0 +1,21 @@
+---
+layout: page
+title: "404: Page not found"
+permalink: /404.html
+
+# GitHub Pages serves this document with HTTP 404 for unknown paths, but the
+# file itself is also directly fetchable at /404.html with HTTP 200. Without an
+# explicit directive that makes it a candidate for the index as a page whose
+# entire content is the words "Page not found", so it is marked noindex.
+# `follow` is kept so that crawlers still follow the site navigation rendered
+# inside the shared layout.
+seo_noindex: true
+description: >-
+  The page you asked for does not exist on this site. Use the archive, the
+  category list or the tag list to find the SANS Holiday Hack Challenge
+  write-up you are looking for.
+---
+
+{% include lang.html %}
+
+<p class="lead">{{ site.data.locales[lang].not_found.statement }}</p>
