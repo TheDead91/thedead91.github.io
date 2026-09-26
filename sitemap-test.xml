@@ -1,0 +1,31 @@
+---
+# TEMPORARY DIAGNOSTIC SITEMAP - created by the SITEMAP FETCH RECOVERY GATE.
+#
+# Purpose: isolate whether Search Console's "Couldn't fetch" verdict is caused by
+# this site's canonical sitemap document (its 89-URL population, its
+# `<lastmod>` values, its schemaLocation attribute or its escaped `&amp;` in one
+# URL) or by something outside the document, by submitting a second sitemap on
+# the same property at the same moment that differs in every controllable way.
+#
+# Deliberate differences from sitemap.xml:
+#   1. population: 3 URLs instead of 89;
+#   2. no <lastmod> element at all (sitemap.xml emits timezone-offset
+#      timestamps, e.g. 2026-09-26T15:02:22+02:00);
+#   3. no xsi:schemaLocation attribute;
+#   4. no indentation and no newlines between elements;
+#   5. no URL containing an ampersand, so no XML entity appears.
+#
+# Everything required for validity is kept: the XML declaration, UTF-8
+# encoding, the canonical sitemap namespace, HTTPS absolute URLs, and only URLs
+# that are HTTP 200, self-canonical, indexable and unblocked.
+#
+# `sitemap: false` keeps this file out of the canonical sitemap so the
+# diagnostic cannot contaminate the thing it is diagnosing.
+#
+# DELETE THIS FILE once the gate has an answer.
+layout: null
+permalink: /sitemap-test.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://thedead91.github.io/</loc></url><url><loc>https://thedead91.github.io/posts/2023-01-Holiday-Hack-Orientation/</loc></url><url><loc>https://thedead91.github.io/posts/2025-25-Snowblind-Ambush/</loc></url></urlset>
