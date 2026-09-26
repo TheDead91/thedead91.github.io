@@ -11,6 +11,7 @@ Target: `https://thedead91.github.io/` (Search Console property
 | `BASELINE.md` | The site as an external crawler saw it before any change |
 | `ROOT_CAUSE.md` | Findings classified CONFIRMED / HIGH CONFIDENCE / POSSIBLE |
 | `CHANGES.md` | Every repository and deployment change, with rationale |
+| `POST_DEPLOYMENT.md` | Live verification, Search Console actions, and Google's unchanged post-deploy state |
 | `URL_MATRIX.csv` / `.json` | Per-URL reconciliation, 204 URLs, 25 columns |
 
 `docs/` is listed in `exclude:` in `_config.yml`, so nothing in this directory is
